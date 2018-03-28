@@ -1,7 +1,7 @@
-#ifndef _LogikEdge_Seal_List_h
-#define _LogikEdge_Seal_List_h
+#ifndef _LogikEdge_React_List_h
+#define _LogikEdge_React_List_h
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
     struct ListElement {
       ListElement*  next;

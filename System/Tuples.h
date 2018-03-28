@@ -1,7 +1,7 @@
-#ifndef _LogikEdge_Seal_Tuples_h
-#define _LogikEdge_Seal_Tuples_h
+#ifndef _LogikEdge_React_Tuples_h
+#define _LogikEdge_React_Tuples_h
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
     template <typename T1, typename T2>
     class Pair {

@@ -1,9 +1,9 @@
-#ifndef _LogikEdge_Seal_ISerializable_h
-#define _LogikEdge_Seal_ISerializable_h
+#ifndef _LogikEdge_React_ISerializable_h
+#define _LogikEdge_React_ISerializable_h
 
 #include "../CppUtilities/Interface.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
     // ======================================================================
     /// Define the serializable interface.

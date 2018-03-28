@@ -1,5 +1,5 @@
-#ifndef _LogikeEdge_Seal_Mpl_h
-#define _LogikeEdge_Seal_Mpl_h
+#ifndef _LogikeEdge_React_Mpl_h
+#define _LogikeEdge_React_Mpl_h
 
 #include "If.h"
 #include "Int.h"

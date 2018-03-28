@@ -1,5 +1,5 @@
-#ifndef _LogikEdge_Seal_Function_h
-#define _LogikEdge_Seal_Function_h
+#ifndef _LogikEdge_React_Function_h
+#define _LogikEdge_React_Function_h
 
 // =================================================================
 /// Allows to declare a function within another function body.

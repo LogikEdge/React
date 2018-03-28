@@ -1,7 +1,7 @@
-#ifndef _LogikEdge_Seal_Queue_h
-#define _LogikEdge_Seal_Queue_h
+#ifndef _LogikEdge_React_Queue_h
+#define _LogikEdge_React_Queue_h
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 	template <typename T, unsigned SIZE>
 	class Queue {
 	public:

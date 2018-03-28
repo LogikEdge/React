@@ -1,7 +1,7 @@
-#ifndef _LogikEdge_Seal_PriorityQueue_h
-#define _LogikEdge_Seal_PriorityQueue_h
+#ifndef _LogikEdge_React_PriorityQueue_h
+#define _LogikEdge_React_PriorityQueue_h
 
-//#include "Target/ISeal.h"
+//#include "Target/IReact.h"
 #include "../std/utility.h"
 #include <algorithm>
 
@@ -14,7 +14,7 @@
 /// @param Compare A Compare type providing a strict weak ordering. It has
 ///                boolean operator ()(const T&,const T&)
 namespace LogikEdge {
-	namespace Seal {
+	namespace React {
 		/// -- PriorityQueue real generic class --
 		template <typename T, typename Container, typename Compare>
 		class PriorityQueue {

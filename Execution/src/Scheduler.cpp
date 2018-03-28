@@ -1,7 +1,7 @@
 #include "../Scheduler.h"
 #include "../LowPowerMgr.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
     /// The system scheduler
     Scheduler   Scheduler::ourInstance;
 

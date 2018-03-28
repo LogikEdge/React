@@ -1,7 +1,7 @@
-#ifndef _LogikEdge_Seal_Nil_h
-#define _LogikEdge_Seal_Nil_h
+#ifndef _LogikEdge_React_Nil_h
+#define _LogikEdge_React_Nil_h
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
     // ======================================================================
     /// The Nil type represents a type without any treats, properties and

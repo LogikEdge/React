@@ -1,2 +1,2 @@
 #include "TargetDefs.h"
-#include "ISeal.h"
+#include "IReact.h"

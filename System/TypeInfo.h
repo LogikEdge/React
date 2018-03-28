@@ -1,8 +1,8 @@
-#ifndef _LogikEdge_Seal_TypeInfo_h
-#define _LogikEdge_Seal_TypeInfo_h
+#ifndef _LogikEdge_React_TypeInfo_h
+#define _LogikEdge_React_TypeInfo_h
 
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
 /// Builds the global TypeInfo descriptor for the given type.
 #define MakeBaselessTypeInfo(TYPE) \

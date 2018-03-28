@@ -1,17 +1,17 @@
 #include "../LowPowerMgr.h"
-#include "../../Targets/ISeal.h"
+#include "../../Targets/IReact.h"
 #include "../Scheduler.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
 // -- Declare the low power manager singleton.--
 LowPowerMgr LowPowerMgr::ourInstance;
 
 // --------------------------------------------------------------------------
-/// Suspends Seal execution until the next high-priority process.
+/// Suspends React execution until the next high-priority process.
 void LowPowerMgr::doRun() {
     Milliseconds sleepTime= Scheduler::getInstance().getDelayTillNextTimedProcess(1000);
-    ISeal::sleep(sleepTime);
+    IReact::sleep(sleepTime);
 }
 
 }}

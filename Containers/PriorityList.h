@@ -1,9 +1,9 @@
-#ifndef _LogikEdge_Seal_PriorityList_h
-#define _LogikEdge_Seal_PriorityList_h
+#ifndef _LogikEdge_React_PriorityList_h
+#define _LogikEdge_React_PriorityList_h
 
 #include "List.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
     struct _PriorityList {
         ListElement*    head;

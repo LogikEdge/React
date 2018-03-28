@@ -1,5 +1,5 @@
-#ifndef _LogikEdge_Seal_Property_h
-#define _LogikEdge_Seal_Property_h
+#ifndef _LogikEdge_React_Property_h
+#define _LogikEdge_React_Property_h
 
 // ==========================================================================
 /// Helpers to define class properties.

@@ -1,5 +1,5 @@
-#ifndef _LogikEdge_Seal_Mpl_IsPrimitive_h
-#define _LogikEdge_Seal_Mpl_IsPrimitive_h
+#ifndef _LogikEdge_React_Mpl_IsPrimitive_h
+#define _LogikEdge_React_Mpl_IsPrimitive_h
 
 namespace LogikEdge { namespace Mpl {
 

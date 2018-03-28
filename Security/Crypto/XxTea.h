@@ -1,9 +1,9 @@
-#ifndef _LogikEdge_Seal_XxTea_h
-#define _LogikEdge_Seal_XxTea_h
+#ifndef _LogikEdge_React_XxTea_h
+#define _LogikEdge_React_XxTea_h
 
 #include <stdint.h>
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
     // ======================================================================
     /// XxTea implements the _Corrected Block TEA_ encryption / decryption

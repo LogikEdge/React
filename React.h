@@ -1,10 +1,10 @@
-#ifndef _LogikEdge_Seal_h
-#define _LogikEdge_Seal_h
+#ifndef _LogikEdge_React_h
+#define _LogikEdge_React_h
 
 // =======================================================================
-/// Master Seal include file.
+/// Master React include file.
 ///
-/// This can be used to include all of Seal include files with a single
+/// This can be used to include all of React include files with a single
 /// include statement,
 ///
 #if defined(ARDUINO)
@@ -19,21 +19,21 @@
 #include "Security/All.h"
 
 // =======================================================================
-/// Default to using the Seal namespace.
+/// Default to using the React namespace.
 using namespace LogikEdge;
-using namespace LogikEdge::Seal;
+using namespace LogikEdge::React;
 
 
 // =======================================================================
 /// Global Definitions
 ///
-/// This section declares the public interface of Seal.  All functionality
-/// of Seal should be declared in this module only.
+/// This section declares the public interface of React.  All functionality
+/// of React should be declared in this module only.
 ///
-namespace LogikEdge { namespace Seal {
-        /// Initialize the Seal kernel.
+namespace LogikEdge { namespace React {
+        /// Initialize the React kernel.
         void init();
-        /// Run the Seal kernel
+        /// Run the React kernel
         void run();
 
         /// Wakes up an event process

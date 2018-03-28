@@ -1,2 +1,2 @@
-# Seal
+# React
 Great Embedded ARchitecture Solution

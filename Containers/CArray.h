@@ -1,7 +1,7 @@
-#ifndef _LogikEdge_Seal_CArray_h
-#define _LogikEdge_Seal_CArray_h
+#ifndef _LogikEdge_React_CArray_h
+#define _LogikEdge_React_CArray_h
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
 template <typename T, unsigned S>
 class CArray {

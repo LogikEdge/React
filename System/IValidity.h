@@ -1,7 +1,7 @@
-#ifndef _LogikEdge_Seal_IValidity_h
-#define _LogikEdge_Seal_IValidity_h
+#ifndef _LogikEdge_React_IValidity_h
+#define _LogikEdge_React_IValidity_h
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 	
 	// =========================================================================
 	/// Defines the concept of object validity.

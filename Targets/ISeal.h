@@ -1,9 +1,9 @@
-#ifndef _LogikEdge_Seal_ISeal_h
-#define _LogikEdge_Seal_ISeal_h
+#ifndef _LogikEdge_React_IReact_h
+#define _LogikEdge_React_IReact_h
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
-    struct ISeal {
+    struct IReact {
         /// Returns a milliseconds reference time base.
         static long getMilliseconds();
         /// Creates a reentrancy barrier.

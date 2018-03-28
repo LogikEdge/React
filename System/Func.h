@@ -1,9 +1,9 @@
-#ifndef _LogikEdge_Seal_Func_h
-#define _LogikEdge_Seal_Func_h
+#ifndef _LogikEdge_React_Func_h
+#define _LogikEdge_React_Func_h
 
 #include "Nil.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
     // ======================================================================
     /// The Func<...> template facilitates the creation of function pointer

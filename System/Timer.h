@@ -1,9 +1,9 @@
-#ifndef _LogikEdge_Seal_Timer_h
-#define _LogikEdge_Seal_Timer_h
+#ifndef _LogikEdge_React_Timer_h
+#define _LogikEdge_React_Timer_h
 
-#include "../Targets/ISeal.h"
+#include "../Targets/IReact.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
 
 	typedef long	Milliseconds;
 
@@ -20,7 +20,7 @@ namespace LogikEdge { namespace Seal {
 	    bool         isElapsed() const               	{ return remainingTime() <= 0; }
         Milliseconds elapsedTime() const                { return myElapsedTime; }
 
-	    static Milliseconds currentTime()               { return ISeal::getMilliseconds(); }
+	    static Milliseconds currentTime()               { return IReact::getMilliseconds(); }
 
 	private:
 	    Milliseconds myElapsedTime;

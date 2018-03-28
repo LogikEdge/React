@@ -1,14 +1,14 @@
 #include <time.h>
 #include <sys/time.h>
-#include "../ISeal.h"
+#include "../IReact.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
     // -----------------------------------------------------------------------
     /// Returns a milliseconds timer reference from the Arduino.
     ///
     /// @return The number of milliseconds since startup.
     ///
-    long ISeal::getMilliseconds()  {
+    long IReact::getMilliseconds()  {
         struct timeval tv;
         if(gettimeofday(&tv, 0) != 0) return 0;
         return long(tv.tv_sec * 1000L + tv.tv_usec / 1000L);
@@ -16,18 +16,18 @@ namespace LogikEdge { namespace Seal {
 
     // -----------------------------------------------------------------------
     /// Starts a reentrancy barrier.
-    void ISeal::startCriticalSection() {}
+    void IReact::startCriticalSection() {}
 
     // -----------------------------------------------------------------------
     /// Ends previously created reentrancy barrier.
-    void ISeal::endCriticalSection()   {}
+    void IReact::endCriticalSection()   {}
 
     // -----------------------------------------------------------------------
     /// Go into low-power mode for the given amount of time.
     ///
     /// @param milliseconds The time period to go to sleep
     ///
-    void ISeal::sleep(long milliseconds) {
+    void IReact::sleep(long milliseconds) {
         struct timespec ts;
         ts.tv_sec= 0;
         if(milliseconds >= 1000L) {

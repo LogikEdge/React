@@ -1,9 +1,9 @@
-#ifndef _LogikEdge_Seal_IPeriodicProcess_h
-#define _LogikEdge_Seal_IPeriodicProcess_h
+#ifndef _LogikEdge_React_IPeriodicProcess_h
+#define _LogikEdge_React_IPeriodicProcess_h
 
 #include "ITimedProcess.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
     // ========================================================================
     /// Base of all types that can be queued in the scheduler.
     struct IPeriodicProcess : public ITimedProcess {

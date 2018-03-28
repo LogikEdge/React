@@ -1,5 +1,5 @@
-#ifndef _LogikEdge_Seal_Scheduler_h
-#define _LogikEdge_Seal_Scheduler_h
+#ifndef _LogikEdge_React_Scheduler_h
+#define _LogikEdge_React_Scheduler_h
 
 #include "IProcess.h"
 #include "ITimedProcess.h"
@@ -7,7 +7,7 @@
 #include "../Containers/List.h"
 #include "../Containers/PriorityList.h"
 
-namespace LogikEdge { namespace Seal {
+namespace LogikEdge { namespace React {
     struct TimedProcessComparator {
         static int compare(const ITimedProcess& p1, const ITimedProcess& p2) {
             return p2.elapsedTime() - p1.elapsedTime();
