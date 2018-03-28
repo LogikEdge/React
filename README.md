@@ -1,2 +1,2 @@
-# React
-C++ Reactive Kernel for IoT devices
+# Seal
+Great Embedded ARchitecture Solution
