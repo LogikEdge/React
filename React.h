@@ -8,7 +8,7 @@
 /// include statement,
 ///
 #include "sources/Cdll.h"
-#include "sources/IAction.h"
+#include "sources/IExecutable.h"
 
 // =======================================================================
 /// Default to using the React namespace.
