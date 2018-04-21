@@ -17,7 +17,7 @@ AfterDelay:
 Periodic:
 : Processes in this execution state are periodically processed after activation.
 
-Background:
+Continuous:
 : Processes in this execution state are processed at most once every time a process from any of the aforementionned execution state is executed.
 
 Sleep:
