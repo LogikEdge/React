@@ -9,6 +9,7 @@
 ///
 #include "sources/Cdll.h"
 #include "sources/CdllQueue.h"
+#include "sources/CdllPriorityQueue.h"
 #include "sources/IAction.h"
 #include "sources/Dispatcher.h"
 

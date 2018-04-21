@@ -13,6 +13,12 @@ namespace LogikEdge { namespace React {
         case IAction::Background:
             myBackgroundQ.push(toActivate);
             break;
+        case IAction::Periodic:
+            myPeriodicQ.push(toActivate);
+            break;
+        case IAction::AfterDelay:
+            myDelayQ.push(toActivate);
+            break;
         }
     }
 

@@ -18,6 +18,10 @@ namespace LogikEdge { namespace React {
 
         Cdll* pop();
 
+        bool isEmpty() const {
+            return head.isIsolated();
+        }
+
     private:
         Cdll    head;   //< The head of the Cdll queue.
     };

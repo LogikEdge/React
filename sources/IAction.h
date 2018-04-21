@@ -39,7 +39,6 @@ namespace LogikEdge { namespace React {
 
     private:
         ExecutionState myExecutionState;    //< Execution state of the action.
-
     };
 
 }}

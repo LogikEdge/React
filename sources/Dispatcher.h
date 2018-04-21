@@ -2,7 +2,7 @@
 #define LogikEdge_React_Dispatcher_h
 
 #include "CdllQueue.h"
-
+#include "CdllPriorityQueue.h"
 
 namespace LogikEdge { namespace React {
     // -- Forward declarations --
@@ -10,6 +10,8 @@ namespace LogikEdge { namespace React {
 
     // =======================================================================
     struct Dispatcher {
+        Dispatcher() : myDelayQ(0), myPeriodicQ(0) {}
+
         void activate(IAction& toActivate);
 
         void runOnce();
@@ -18,10 +20,12 @@ namespace LogikEdge { namespace React {
             return ourDispatcher;
         }
     private:
-        CdllQueue   myOnEventQ;
-        CdllQueue   myBackgroundQ;
+        CdllQueue           myOnEventQ;
+        CdllQueue           myBackgroundQ;
+        CdllPriorityQueue   myDelayQ;
+        CdllPriorityQueue   myPeriodicQ;
 
-        static Dispatcher ourDispatcher;
+        static Dispatcher   ourDispatcher;
     };
 
 }}
