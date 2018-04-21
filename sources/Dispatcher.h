@@ -8,9 +8,11 @@ namespace LogikEdge { namespace React {
     // -- Forward declarations --
     struct IAction;
 
+    extern int dummyCompare(Cdll&, Cdll&);
+
     // =======================================================================
     struct Dispatcher {
-        Dispatcher() : myDelayQ(0), myPeriodicQ(0) {}
+        Dispatcher() : myDelayQ(dummyCompare), myPeriodicQ(dummyCompare) {}
 
         void activate(IAction& toActivate);
 

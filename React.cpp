@@ -5,6 +5,7 @@
 #if defined(ARDUINO)
 #include "sources/Cdll.cpp"
 #include "sources/CdllQueue.cpp"
+#include "sources/CdllPriorityQueue.cpp"
 #include "sources/Dispatcher.cpp"
 #endif
 

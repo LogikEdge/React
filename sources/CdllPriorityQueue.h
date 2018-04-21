@@ -14,6 +14,8 @@ namespace LogikEdge { namespace React {
             sortFunction = theSortFunction;
         }
 
+        bool isEmpty() const { return head.isIsolated(); }
+
         void push(Cdll& toAdd) {
             // -- Add at the end of the queue. --
             head.addBefore(toAdd);
@@ -28,41 +30,10 @@ namespace LogikEdge { namespace React {
             return head.isIsolated() ? 0 : head.getNext();
         }
 
-        Cdll* pop() {
-            // -- Get highest priority element. --
-            Cdll* result = peek();
-            if(result == 0) {
-                return 0;
-            }
-
-            // -- Remove highest priority element from the queue. --
-            result->isolate();
-            isSorted = false;
-        }
-
-        bool isEmpty() const {
-            return head.isIsolated();
-        }
+        Cdll* pop();
 
     private:
-        void sort() {
-            // -- Nothing to do if queue is already sorted. --
-            if(isSorted == true) {
-                return;
-            }
-            // -- Find the highest priority element. --
-            Cdll* best = head.getNext();
-            if(best == &head) {
-                isSorted = true;
-                return;
-            }
-            // -- Put the highest priority on top of the queue. --
-            if(best != head.getNext()) {
-                head.addAfter(*best);
-            }
-            // -- Declare queue sorted. --
-            isSorted = true;
-        }
+        void sort();
 
     private:
         Cdll            head;       //< The head of the Cdll priority queue.

@@ -5,6 +5,8 @@ namespace LogikEdge { namespace React {
 
     Dispatcher Dispatcher::ourDispatcher;
 
+    int dummyCompare(Cdll&, Cdll&) { return 0; }
+
     void Dispatcher::activate(IAction& toActivate) {
         switch(toActivate.getExecutionState()) {
         case IAction::OnEvent:
