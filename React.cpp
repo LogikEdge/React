@@ -1,7 +1,7 @@
 // ==========================================================================
 // For the Arduino sketch environment, only the top-level
 // source file are included.  Therefore, we need to include
-// all other sources to they are compiled.
+// all other sources for them to be compiled.
 #if defined(ARDUINO)
 #include "sources/Cdll.cpp"
 #include "sources/CdllQueue.cpp"
