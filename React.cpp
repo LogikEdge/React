@@ -7,6 +7,7 @@
 #include "sources/CdllQueue.cpp"
 #include "sources/CdllPriorityQueue.cpp"
 #include "sources/Dispatcher.cpp"
+#include "sources/ITarget/Arduino.cpp"
 #endif
 
 

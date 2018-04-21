@@ -3,6 +3,7 @@
 
 #include "Cdll.h"
 #include "Dispatcher.h"
+#include "Timer.h"
 
 namespace LogikEdge { namespace React {
 
@@ -14,6 +15,11 @@ namespace LogikEdge { namespace React {
         IAction(ExecutionState theExecutionState = OnEvent) {
             myExecutionState = theExecutionState;
         }
+        IAction(ExecutionState theExecutionState, Millisecond theDelay) {
+            myExecutionState = theExecutionState;
+            myDelay = theDelay;
+        }
+
 
         void activate() {
             if(myExecutionState == Immediate) {
@@ -38,7 +44,9 @@ namespace LogikEdge { namespace React {
         friend struct Dispatcher;
 
     private:
-        ExecutionState myExecutionState;    //< Execution state of the action.
+        ExecutionState  myExecutionState;   //< Execution state of the action.
+        Timer           myTimer;            //< Timer used for periodic and delayed execution.
+        Millisecond     myDelay;
     };
 
 }}

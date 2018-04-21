@@ -16,6 +16,8 @@ namespace LogikEdge { namespace React {
 
         bool isEmpty() const { return head.isIsolated(); }
 
+        void touch() { isSorted = false; }
+
         void push(Cdll& toAdd) {
             // -- Add at the end of the queue. --
             head.addBefore(toAdd);

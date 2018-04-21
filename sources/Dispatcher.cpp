@@ -16,9 +16,11 @@ namespace LogikEdge { namespace React {
             myBackgroundQ.push(toActivate);
             break;
         case IAction::Periodic:
+            toActivate.myTimer.start(toActivate.myDelay);
             myPeriodicQ.push(toActivate);
             break;
         case IAction::AfterDelay:
+            toActivate.myTimer.start(toActivate.myDelay);
             myDelayQ.push(toActivate);
             break;
         }
@@ -31,6 +33,25 @@ namespace LogikEdge { namespace React {
             IAction* toRun = static_cast<IAction*>(cdllToRun);
             toRun->run();
             return;
+        }
+
+        cdllToRun = myDelayQ.peek();
+        if(cdllToRun != 0) {
+            IAction* toRun = static_cast<IAction*>(cdllToRun);
+            if(toRun->myTimer.isElapsed()) {
+                myDelayQ.pop();
+                toRun->run();
+            }
+        }
+
+        cdllToRun = myPeriodicQ.peek();
+        if(cdllToRun != 0) {
+            IAction* toRun = static_cast<IAction*>(cdllToRun);
+            if(toRun->myTimer.isElapsed()) {
+                toRun->myTimer.restartNoDrift(toRun->myDelay);
+                myPeriodicQ.touch();
+                toRun->run();
+            }
         }
 
         // -- Run the next action from the background queue. --

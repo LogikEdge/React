@@ -1,13 +1,15 @@
 #ifndef LogikEdge_React_Timer_h
 #define LogikEdge_React_Timer_h
 
-#include "../Target/ITarget.h"
+#include "ITarget.h"
 
 namespace LogikEdge { namespace React {
 
+    typedef long Millisecond;   //< Type for millisecond units.
+
     // ==============================================================================
     /// The timer is used to determine the amount of time that remains until a given
-    /// delay (elapse time) is reached.  The timer unit of time is the miliseconds.
+    /// delay (elapse time) is reached.  The timer unit of time is the milliseconds.
     ///
     /// The timer calculates the elapse time from the given delay and the system
     /// time as follows:
@@ -91,7 +93,7 @@ namespace LogikEdge { namespace React {
 
     private:
         Millisecond  elapseTime;     ///< The time at which the timer will elaspe.
-        bool        isStarted : 1;  ///< Timer start / stop state.
+        bool         isStarted : 1;  ///< Timer start / stop state.
     };
 
 }}

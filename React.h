@@ -12,7 +12,8 @@
 #include "sources/CdllPriorityQueue.h"
 #include "sources/IAction.h"
 #include "sources/Dispatcher.h"
-//#include "sources/Timer.h"
+#include "sources/ITarget.h"
+#include "sources/Timer.h"
 
 // =======================================================================
 /// Default to using the React namespace.
