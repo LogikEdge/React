@@ -22,3 +22,6 @@ namespace LogikEdge { namespace React {
         virtual void doRun()= 0;
     };
 }}
+
+#endif
+

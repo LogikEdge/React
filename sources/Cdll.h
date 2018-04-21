@@ -86,8 +86,6 @@ private:
     Cdll*   prev;   ///< Previous element in the list
 };
 
-}}
-
 
 }}
 #endif

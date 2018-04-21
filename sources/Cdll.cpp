@@ -14,11 +14,11 @@ void Cdll::addAfter(Cdll& toAdd) {
     toAdd.isolate();
 
     // -- Setup new element to join the list. --
-    toAdd.previous = this;
+    toAdd.prev = this;
     toAdd.next = next;
 
     // -- Insert the new element into the list. --
-    next->previous= &toAdd;
+    next->prev= &toAdd;
     next = &toAdd;
 }
 
