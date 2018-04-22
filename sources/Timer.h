@@ -5,7 +5,7 @@
 
 namespace LogikEdge { namespace React {
 
-    typedef long Millisecond;   //< Type for millisecond units.
+    typedef long Milliseconds;   //< Type for millisecond units.
 
     // ==============================================================================
     /// The timer is used to determine the amount of time that remains until a given
@@ -27,7 +27,7 @@ namespace LogikEdge { namespace React {
 
         // -------------------------------------------------------------------------
         /// Builds a timer and start it if a delay is given.
-        Timer(Millisecond delay= -1) {
+        Timer(Milliseconds delay= -1) {
             stop();
             if(delay > 0) {
                 start(delay);
@@ -36,20 +36,20 @@ namespace LogikEdge { namespace React {
 
         // -------------------------------------------------------------------------
         /// Returns the number of miliseconds that has passed.
-        static Millisecond   getMilliseconds() {
+        static Milliseconds   getMilliseconds() {
             return ITarget::getMilliseconds();
         }
 
         // -------------------------------------------------------------------------
         /// Sets the timer elapse time with the given delay.
-        void start(Millisecond delay) {
+        void start(Milliseconds delay) {
             elapseTime= getMilliseconds() + delay;
             isStarted= true;
         }
 
         // -------------------------------------------------------------------------
         /// Restarts the timer with a delay based on the previous elapse time.
-        void restartNoDrift(Millisecond delay) {
+        void restartNoDrift(Milliseconds delay) {
             elapseTime+= delay;
             isStarted= true;
         }
@@ -65,7 +65,7 @@ namespace LogikEdge { namespace React {
         /// @return The remaining time until the delay elapses.  A positive value
         ///         implies that the timer has not elapsed and the negative value
         ///         implies that the timer has elapsed for that period.
-        Millisecond getRemainingTime() const {
+        Milliseconds getRemainingTime() const {
             return isStarted ? elapseTime - getMilliseconds() : 0;
         }
 
@@ -73,7 +73,7 @@ namespace LogikEdge { namespace React {
         /// Returns the elapse time of the timer.
         /// @return The elapse time of the timer.  Zero (0) is returned if the
         ///         timer is not active.
-        Millisecond getElapseTime() const {
+        Milliseconds getElapseTime() const {
             return isStarted ? elapseTime : 0;
         }
 
@@ -92,7 +92,7 @@ namespace LogikEdge { namespace React {
         }
 
     private:
-        Millisecond  elapseTime;     ///< The time at which the timer will elaspe.
+        Milliseconds elapseTime;     ///< The time at which the timer will elaspe.
         bool         isStarted : 1;  ///< Timer start / stop state.
     };
 

@@ -9,44 +9,51 @@ namespace LogikEdge { namespace React {
 
     // =======================================================================
     struct IAction : private Cdll {
-        /// Action execution state.
-        enum ExecutionState { Immediate, OnEvent, AfterDelay, Periodic, Background };
 
-        IAction(ExecutionState theExecutionState = OnEvent) {
-            myExecutionState = theExecutionState;
-        }
-        IAction(ExecutionState theExecutionState, Millisecond theDelay) {
-            myExecutionState = theExecutionState;
-            myDelay = theDelay;
-        }
+        virtual void activate() { run(); }
+        bool isActive() const   { return !isIsolated(); }
 
-
-        void activate() {
-            if(myExecutionState == Immediate) {
-                run();
-                return;
-            }
-            Dispatcher::getInstance().activate(*this);
-        }
-
-        bool isActive() const {
-            return !isIsolated();
-        }
 
         // ------------------------------------------------------------------
         /// The specialization of the Action.
         virtual void run()= 0;
 
-        ExecutionState getExecutionState() const {
-            return myExecutionState;
+        friend struct Dispatcher;
+    };
+
+    struct IOnEventAction : public IAction {
+        void activate() { Dispatcher::getInstance().activate(*this); }
+    };
+
+    struct IBackgroundAction : public IAction {
+        void activate() { Dispatcher::getInstance().activate(*this); }
+    };
+
+    struct ITimedAction : public IAction {
+        ITimedAction(Milliseconds theDelay) {
+            myDelay = theDelay;
         }
 
-        friend struct Dispatcher;
+        bool isReadyToRun() const   { return myTimer.isElapsed(); }
+        void startTimer()           { myTimer.start(myDelay); }
+        void restartTimerNoDrift()  { myTimer.restartNoDrift(myDelay); }
+        void stopTimer()            { myTimer.stop(); }
 
-    private:
-        ExecutionState  myExecutionState;   //< Execution state of the action.
-        Timer           myTimer;            //< Timer used for periodic and delayed execution.
-        Millisecond     myDelay;
+    protected:
+        Timer           myTimer;    //< Timer used for periodic and delayed execution.
+        Milliseconds    myDelay;    //< Timer delay value
+    };
+
+    struct IPeriodicAction : public ITimedAction {
+        IPeriodicAction(Milliseconds thePeriod) : ITimedAction(thePeriod) {}
+
+        void activate() { Dispatcher::getInstance().activate(*this); }
+    };
+
+    struct IDelayedAction : public ITimedAction {
+        IDelayedAction(Milliseconds thePeriod) : ITimedAction(thePeriod) {}
+
+        void activate() { Dispatcher::getInstance().activate(*this); }
     };
 
 }}

@@ -7,35 +7,18 @@ namespace LogikEdge { namespace React {
 
     int dummyCompare(Cdll&, Cdll&) { return 0; }
 
-    void Dispatcher::activate(IAction& toActivate) {
-        switch(toActivate.getExecutionState()) {
-        case IAction::OnEvent:
-            activateOnEvent(toActivate);
-            break;
-        case IAction::Background:
-            activateInBackground(toActivate);
-            break;
-        case IAction::Periodic:
-            activatePeriodic(toActivate);
-            break;
-        case IAction::AfterDelay:
-            activateAfterDelay(toActivate);
-            break;
-        }
-    }
-
-    void Dispatcher::activateOnEvent(IAction& toActivate) {
+    void Dispatcher::activate(IOnEventAction& toActivate) {
         myOnEventQ.push(toActivate);
     }
-    void Dispatcher::activateAfterDelay(IAction& toActivate) {
-        toActivate.myTimer.start(toActivate.myDelay);
+    void Dispatcher::activate(IDelayedAction& toActivate) {
+        toActivate.startTimer();
         myDelayQ.push(toActivate);
     }
-    void Dispatcher::activatePeriodic(IAction& toActivate) {
-        toActivate.myTimer.start(toActivate.myDelay);
+    void Dispatcher::activate(IPeriodicAction& toActivate) {
+        toActivate.startTimer();
         myPeriodicQ.push(toActivate);
     }
-    void Dispatcher::activateInBackground(IAction& toActivate) {
+    void Dispatcher::activate(IBackgroundAction& toActivate) {
         myBackgroundQ.push(toActivate);
     }
 
@@ -43,15 +26,15 @@ namespace LogikEdge { namespace React {
         // -- First empty the OnEvent queue. --
         Cdll* cdllToRun = myOnEventQ.pop();
         if(cdllToRun != 0) {
-            IAction* toRun = static_cast<IAction*>(cdllToRun);
+            IOnEventAction* toRun = static_cast<IOnEventAction*>(cdllToRun);
             toRun->run();
             return;
         }
 
         cdllToRun = myDelayQ.peek();
         if(cdllToRun != 0) {
-            IAction* toRun = static_cast<IAction*>(cdllToRun);
-            if(toRun->myTimer.isElapsed()) {
+            IDelayedAction* toRun = static_cast<IDelayedAction*>(cdllToRun);
+            if(toRun->isReadyToRun()) {
                 myDelayQ.pop();
                 toRun->run();
             }
@@ -59,9 +42,9 @@ namespace LogikEdge { namespace React {
 
         cdllToRun = myPeriodicQ.peek();
         if(cdllToRun != 0) {
-            IAction* toRun = static_cast<IAction*>(cdllToRun);
-            if(toRun->myTimer.isElapsed()) {
-                toRun->myTimer.restartNoDrift(toRun->myDelay);
+            IPeriodicAction* toRun = static_cast<IPeriodicAction*>(cdllToRun);
+            if(toRun->isReadyToRun()) {
+                toRun->restartTimerNoDrift();
                 myPeriodicQ.touch();
                 toRun->run();
             }
@@ -71,7 +54,7 @@ namespace LogikEdge { namespace React {
         cdllToRun = myBackgroundQ.pop();
         if(cdllToRun != 0) {
             myBackgroundQ.push(*cdllToRun);
-            IAction* toRun = static_cast<IAction*>(cdllToRun);
+            IBackgroundAction* toRun = static_cast<IBackgroundAction*>(cdllToRun);
             toRun->run();
             return;
         }
