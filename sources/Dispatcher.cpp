@@ -10,20 +10,33 @@ namespace LogikEdge { namespace React {
     void Dispatcher::activate(IAction& toActivate) {
         switch(toActivate.getExecutionState()) {
         case IAction::OnEvent:
-            myOnEventQ.push(toActivate);
+            activateOnEvent(toActivate);
             break;
         case IAction::Background:
-            myBackgroundQ.push(toActivate);
+            activateInBackground(toActivate);
             break;
         case IAction::Periodic:
-            toActivate.myTimer.start(toActivate.myDelay);
-            myPeriodicQ.push(toActivate);
+            activatePeriodic(toActivate);
             break;
         case IAction::AfterDelay:
-            toActivate.myTimer.start(toActivate.myDelay);
-            myDelayQ.push(toActivate);
+            activateAfterDelay(toActivate);
             break;
         }
+    }
+
+    void Dispatcher::activateOnEvent(IAction& toActivate) {
+        myOnEventQ.push(toActivate);
+    }
+    void Dispatcher::activateAfterDelay(IAction& toActivate) {
+        toActivate.myTimer.start(toActivate.myDelay);
+        myDelayQ.push(toActivate);
+    }
+    void Dispatcher::activatePeriodic(IAction& toActivate) {
+        toActivate.myTimer.start(toActivate.myDelay);
+        myPeriodicQ.push(toActivate);
+    }
+    void Dispatcher::activateInBackground(IAction& toActivate) {
+        myBackgroundQ.push(toActivate);
     }
 
     void Dispatcher::runOnce() {

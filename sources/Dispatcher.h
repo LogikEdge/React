@@ -15,6 +15,10 @@ namespace LogikEdge { namespace React {
         Dispatcher() : myDelayQ(dummyCompare), myPeriodicQ(dummyCompare) {}
 
         void activate(IAction& toActivate);
+        void activateOnEvent(IAction&);
+        void activateAfterDelay(IAction&);
+        void activatePeriodic(IAction&);
+        void activateInBackground(IAction&);
 
         void runOnce();
 
