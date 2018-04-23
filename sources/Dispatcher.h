@@ -12,11 +12,11 @@ namespace LogikEdge { namespace React {
     struct IPeriodicAction;
     struct IBackgroundAction;
 
-    extern int dummyCompare(Cdll&, Cdll&);
+    extern int timedActionCompare(Cdll&, Cdll&);
 
     // =======================================================================
     struct Dispatcher {
-        Dispatcher() : myDelayQ(dummyCompare), myPeriodicQ(dummyCompare) {}
+        Dispatcher() : myDelayQ(timedActionCompare), myPeriodicQ(timedActionCompare) {}
 
         void activate(IOnEventAction&);
         void activate(IDelayedAction&);

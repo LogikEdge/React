@@ -6,7 +6,8 @@ namespace LogikEdge { namespace React {
 
     Dispatcher Dispatcher::ourDispatcher;
 
-    int dummyCompare(Cdll&, Cdll&) { return 0; }
+    // ----------------------------------------------------------------------
+    int timedActionCompare(Cdll&, Cdll&) { return 0; }
 
     // ----------------------------------------------------------------------
     /// @param toActivate   The action to be activated.
