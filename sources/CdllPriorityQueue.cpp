@@ -19,9 +19,9 @@ namespace LogikEdge { namespace React {
         if(isSorted == true) {
             return;
         }
-        // -- Nothing to do if the queue contains one or less element. --
+        // -- Nothing to do if the queue is empty. --
         Cdll* best = head.getNext();
-        if(best == &head || best->getNext() == &head) {
+        if(best == &head) {
             isSorted = true;
             return;
         }
