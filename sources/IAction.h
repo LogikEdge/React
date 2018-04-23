@@ -34,10 +34,11 @@ namespace LogikEdge { namespace React {
             myDelay = theDelay;
         }
 
-        bool isReadyToRun() const   { return myTimer.isElapsed(); }
-        void startTimer()           { myTimer.start(myDelay); }
-        void restartTimerNoDrift()  { myTimer.restartNoDrift(myDelay); }
-        void stopTimer()            { myTimer.stop(); }
+        bool         isReadyToRun() const   { return myTimer.isElapsed(); }
+        void         startTimer()           { myTimer.start(myDelay); }
+        void         restartTimerNoDrift()  { myTimer.restartNoDrift(myDelay); }
+        void         stopTimer()            { myTimer.stop(); }
+        Milliseconds getElapseTime() const  { myTimer.getElapseTime(); }
 
     protected:
         Timer           myTimer;    //< Timer used for periodic and delayed execution.
