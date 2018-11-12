@@ -12,8 +12,9 @@ namespace LogikEdge { namespace React {
             head.addBefore(toAdd);
         }
 
-        List* peek() const {
-            return head.isIsolated() ? 0 : head.getNext();
+        template <typename T>
+        T* peek() const {
+            return head.isIsolated() ? 0 : head.getNext<T>();
         }
 
         List* pop();

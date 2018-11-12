@@ -28,14 +28,16 @@ struct List {
 
     // -----------------------------------------------------------------------
     /// Returns the next element of the list.
-    List* getNext() const {
-        return next;
+    template <typename T= List>
+    T* getNext() const {
+        return static_cast<T*>(next);
     }
 
     // -----------------------------------------------------------------------
     /// Returns the previous element of the list.
-    List* getPrevious() const {
-        return prev;
+    template <typename T= List>
+    T* getPrevious() const {
+        return static_cast<T*>(prev);
     }
 
     // -----------------------------------------------------------------------
