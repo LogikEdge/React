@@ -7,7 +7,7 @@ namespace LogikEdge { namespace React {
 
     // =======================================================================
     struct CdllPriorityQueue {
-        typedef int (*SortFunction)(Cdll&, Cdll&);
+        typedef int (*SortFunction)(const Cdll&, const Cdll&);
 
         CdllPriorityQueue(SortFunction theSortFunction) {
             isSorted = true;

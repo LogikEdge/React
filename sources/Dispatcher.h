@@ -12,6 +12,8 @@ namespace LogikEdge { namespace React {
     struct IPeriodicAction;
     struct IBackgroundAction;
 
+    extern int timedActionCompare(const Cdll&, const Cdll&);
+
     // =======================================================================
     struct Dispatcher {
         Dispatcher() : myDelayQ(timedActionCompare), myPeriodicQ(timedActionCompare) {}
@@ -24,7 +26,7 @@ namespace LogikEdge { namespace React {
         void runOnce();
 
         static Dispatcher&  getInstance() { return ourDispatcher; }
-        static int          timedActionCompare(const Cdll&, const Cdll&);
+        //static int          timedActionCompare(const Cdll&, const Cdll&);
 
     private:
         CdllQueue           myOnEventQ;

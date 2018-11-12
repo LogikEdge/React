@@ -7,7 +7,7 @@ namespace LogikEdge { namespace React {
     Dispatcher Dispatcher::ourDispatcher;
 
     // ----------------------------------------------------------------------
-    int Dispatcher::timedActionCompare(const Cdll& c1, const Cdll& c2) {
+    int timedActionCompare(const Cdll& c1, const Cdll& c2) {
       const ITimedAction& a1 = static_cast<const ITimedAction&>(c1);
       const ITimedAction& a2 = static_cast<const ITimedAction&>(c2);
       return a2.getElapseTime() - a1.getElapseTime();
