@@ -1,14 +1,14 @@
 #ifndef LogikEdge_React_IAction_h
 #define LogikEdge_React_IAction_h
 
-#include "Cdll.h"
+#include "List.h"
 #include "Dispatcher.h"
 #include "Timer.h"
 
 namespace LogikEdge { namespace React {
 
     // =======================================================================
-    struct IAction : public Cdll {
+    struct IAction : public List {
 
         virtual void activate() { run(); }
         bool isActive() const   { return !isIsolated(); }

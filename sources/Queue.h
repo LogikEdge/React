@@ -1,29 +1,29 @@
-#ifndef LogikEdge_React_CdllQueue_h
-#define LogikEdge_React_CdllQueue_h
+#ifndef LogikEdge_React_Queue_h
+#define LogikEdge_React_Queue_h
 
-#include "Cdll.h"
+#include "List.h"
 
 namespace LogikEdge { namespace React {
 
     // =======================================================================
-    struct CdllQueue {
+    struct Queue {
 
-        void push(Cdll& toAdd) {
+        void push(List& toAdd) {
             head.addBefore(toAdd);
         }
 
-        Cdll* peek() const {
+        List* peek() const {
             return head.isIsolated() ? 0 : head.getNext();
         }
 
-        Cdll* pop();
+        List* pop();
 
         bool isEmpty() const {
             return head.isIsolated();
         }
 
     private:
-        Cdll    head;   //< The head of the Cdll queue.
+        List    head;   //< The head of the List queue.
     };
 }}
 

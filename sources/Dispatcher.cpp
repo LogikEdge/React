@@ -7,7 +7,7 @@ namespace LogikEdge { namespace React {
     Dispatcher Dispatcher::ourDispatcher;
 
     // ----------------------------------------------------------------------
-    int timedActionCompare(const Cdll& c1, const Cdll& c2) {
+    int timedActionCompare(const List& c1, const List& c2) {
       const ITimedAction& a1 = static_cast<const ITimedAction&>(c1);
       const ITimedAction& a2 = static_cast<const ITimedAction&>(c2);
       return a2.getElapseTime() - a1.getElapseTime();
@@ -49,18 +49,18 @@ namespace LogikEdge { namespace React {
     void Dispatcher::runOnce() {
         // -- 1st priority: OnEvent actions. --
         ITarget::startCriticalSection();
-        Cdll* cdllToRun = myOnEventQ.pop();
-        if(cdllToRun != 0) {
+        List* ListToRun = myOnEventQ.pop();
+        if(ListToRun != 0) {
             ITarget::endCriticalSection();
-            IOnEventAction* toRun = static_cast<IOnEventAction*>(cdllToRun);
+            IOnEventAction* toRun = static_cast<IOnEventAction*>(ListToRun);
             toRun->run();
             return;
         }
 
         // -- 2nd priority: delayed actions. --
-        cdllToRun = myDelayQ.peek();
-        if(cdllToRun != 0) {
-            IDelayedAction* toRun = static_cast<IDelayedAction*>(cdllToRun);
+        ListToRun = myDelayQ.peek();
+        if(ListToRun != 0) {
+            IDelayedAction* toRun = static_cast<IDelayedAction*>(ListToRun);
             if(toRun->isReadyToRun()) {
                 myDelayQ.pop();
                 ITarget::endCriticalSection();
@@ -70,9 +70,9 @@ namespace LogikEdge { namespace React {
         }
 
         // -- 3rd priority: periodic actions. --
-        cdllToRun = myPeriodicQ.peek();
-        if(cdllToRun != 0) {
-            IPeriodicAction* toRun = static_cast<IPeriodicAction*>(cdllToRun);
+        ListToRun = myPeriodicQ.peek();
+        if(ListToRun != 0) {
+            IPeriodicAction* toRun = static_cast<IPeriodicAction*>(ListToRun);
             if(toRun->isReadyToRun()) {
                 myPeriodicQ.touch();
                 ITarget::endCriticalSection();
@@ -83,11 +83,11 @@ namespace LogikEdge { namespace React {
         }
 
         // -- 4th priority: background actions. --
-        cdllToRun = myBackgroundQ.pop();
-        if(cdllToRun != 0) {
-            myBackgroundQ.push(*cdllToRun);
+        ListToRun = myBackgroundQ.pop();
+        if(ListToRun != 0) {
+            myBackgroundQ.push(*ListToRun);
             ITarget::endCriticalSection();
-            IBackgroundAction* toRun = static_cast<IBackgroundAction*>(cdllToRun);
+            IBackgroundAction* toRun = static_cast<IBackgroundAction*>(ListToRun);
             toRun->run();
             return;
         }
