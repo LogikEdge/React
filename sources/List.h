@@ -1,5 +1,5 @@
-#ifndef LogikEdge_React_Cdll_h
-#define LogikEdge_React_Cdll_h
+#ifndef LogikEdge_React_List_h
+#define LogikEdge_React_List_h
 
 namespace LogikEdge { namespace React {
 
@@ -19,54 +19,56 @@ namespace LogikEdge { namespace React {
 ///     |   ------      ------      ------   |
 ///     --------------------------------------
 ///
-struct Cdll {
+struct List {
     // -----------------------------------------------------------------------
     /// Create a self contained list of only itself
-    Cdll() {
+    List() {
         next= prev= this;
     }
 
     // -----------------------------------------------------------------------
     /// Returns the next element of the list.
-    Cdll* getNext() const {
-        return next;
+    template <typename T= List>
+    T* getNext() const {
+        return static_cast<T*>(next);
     }
 
     // -----------------------------------------------------------------------
     /// Returns the previous element of the list.
-    Cdll* getPrevious() const {
-        return prev;
+    template <typename T= List>
+    T* getPrevious() const {
+        return static_cast<T*>(prev);
     }
 
     // -----------------------------------------------------------------------
     /// Appends an element to the list.
     ///
-    /// The Cdll appended will be removed from its current list prior to
+    /// The List appended will be removed from its current list prior to
     /// joining this new list.
     ///
     /// @param toAdd The list to be added.
-    void addAfter(Cdll& toAdd);
+    void addAfter(List& toAdd);
 
     // -----------------------------------------------------------------------
     /// Prepends an element to the list.
     ///
-    /// The Cdll appended will be removed from its current list prior to
+    /// The List appended will be removed from its current list prior to
     /// joining this new list.
     ///
     /// @param toAdd The list to be added.
-    void addBefore(Cdll& toAdd) {
+    void addBefore(List& toAdd) {
         prev->addAfter(toAdd);
     }
 
     // -----------------------------------------------------------------------
     /// Joins a list after.
     /// @param toAdd Head of the list to be added.
-    void joinListAfter(Cdll& toAdd);
+    void joinListAfter(List& toAdd);
 
     // -----------------------------------------------------------------------
     /// Joins a list before.
     /// @param toAdd Head of the list to be added.
-    void joinListBefore(Cdll& toAdd) {
+    void joinListBefore(List& toAdd) {
         prev->joinListAfter(toAdd);
     }
 
@@ -82,8 +84,8 @@ struct Cdll {
     void isolate();
 
 private:
-    Cdll*   next;   ///< Next element in the list
-    Cdll*   prev;   ///< Previous element in the list
+    List*   next;   ///< Next element in the list
+    List*   prev;   ///< Previous element in the list
 };
 
 

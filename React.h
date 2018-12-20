@@ -7,9 +7,9 @@
 /// This can be used to include all of React include files with a single
 /// include statement,
 ///
-#include "sources/Cdll.h"
-#include "sources/CdllQueue.h"
-#include "sources/CdllPriorityQueue.h"
+#include "sources/List.h"
+#include "sources/Queue.h"
+#include "sources/PriorityQueue.h"
 #include "sources/IAction.h"
 #include "sources/Dispatcher.h"
 #include "sources/ITarget.h"

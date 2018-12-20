@@ -1,15 +1,15 @@
-#include "Cdll.h"
+#include "List.h"
 
 namespace LogikEdge { namespace React {
 
 // -----------------------------------------------------------------------
 /// Appends an element to the list.
 ///
-/// The Cdll appended will be removed from its current list prior to
+/// The List appended will be removed from its current list prior to
 /// joining this new list.
 ///
 /// @param toAdd The list to be added.
-void Cdll::addAfter(Cdll& toAdd) {
+void List::addAfter(List& toAdd) {
     // -- Remove element to add from its current list. --
     toAdd.isolate();
 
@@ -25,7 +25,7 @@ void Cdll::addAfter(Cdll& toAdd) {
 // -----------------------------------------------------------------------
 /// Joins a list after.
 /// @param toAdd Head of the list to be added.
-void Cdll::joinListAfter(Cdll& toAdd) {
+void List::joinListAfter(List& toAdd) {
     toAdd.prev->next= next;
     next->prev= toAdd.prev;
     next= &toAdd;
@@ -34,7 +34,7 @@ void Cdll::joinListAfter(Cdll& toAdd) {
 
 // -----------------------------------------------------------------------
 /// Isolates the current element from the containing list.
-void Cdll::isolate() {
+void List::isolate() {
     prev->next= next;
     next->prev= prev;
     next= prev= this;

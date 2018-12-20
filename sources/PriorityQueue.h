@@ -1,15 +1,15 @@
-#ifndef LogikEdge_React_CdllPriorityQueue_h
-#define LogikEdge_React_CdllPriorityQueue_h
+#ifndef LogikEdge_React_PriorityQueue_h
+#define LogikEdge_React_PriorityQueue_h
 
-#include "Cdll.h"
+#include "List.h"
 
 namespace LogikEdge { namespace React {
 
     // =======================================================================
-    struct CdllPriorityQueue {
-        typedef int (*SortFunction)(Cdll&, Cdll&);
+    struct PriorityQueue {
+        typedef int (*SortFunction)(const List&, const List&);
 
-        CdllPriorityQueue(SortFunction theSortFunction) {
+        PriorityQueue(SortFunction theSortFunction) {
             isSorted = true;
             sortFunction = theSortFunction;
         }
@@ -18,7 +18,7 @@ namespace LogikEdge { namespace React {
 
         void touch() { isSorted = false; }
 
-        void push(Cdll& toAdd) {
+        void push(List& toAdd) {
             // -- Add at the end of the queue. --
             head.addBefore(toAdd);
 
@@ -26,19 +26,19 @@ namespace LogikEdge { namespace React {
             isSorted = false;
         }
 
-        Cdll* peek() {
+        List* peek() {
             // -- Assure that the highest priority is on top. --
             sort();
             return head.isIsolated() ? 0 : head.getNext();
         }
 
-        Cdll* pop();
+        List* pop();
 
     private:
         void sort();
 
     private:
-        Cdll            head;       //< The head of the Cdll priority queue.
+        List            head;       //< The head of the List priority queue.
         bool            isSorted;   //< Keeps track of the sorted state.
         SortFunction    sortFunction;
     };

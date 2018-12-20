@@ -3,9 +3,9 @@
 // source file are included.  Therefore, we need to include
 // all other sources for them to be compiled.
 #if defined(ARDUINO)
-#include "sources/Cdll.cpp"
-#include "sources/CdllQueue.cpp"
-#include "sources/CdllPriorityQueue.cpp"
+#include "sources/List.cpp"
+#include "sources/Queue.cpp"
+#include "sources/PriorityQueue.cpp"
 #include "sources/Dispatcher.cpp"
 #include "sources/ITarget/Arduino.cpp"
 #endif

@@ -1,9 +1,9 @@
-#include "CdllQueue.h"
+#include "Queue.h"
 
 namespace LogikEdge { namespace React {
 
-    Cdll* CdllQueue::pop() {
-        Cdll* result = peek();
+    List* Queue::pop() {
+        List* result = peek<List>();
         if(result != 0) {
             result->isolate();
         }

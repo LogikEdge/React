@@ -1,8 +1,8 @@
 #ifndef LogikEdge_React_Dispatcher_h
 #define LogikEdge_React_Dispatcher_h
 
-#include "CdllQueue.h"
-#include "CdllPriorityQueue.h"
+#include "Queue.h"
+#include "PriorityQueue.h"
 
 namespace LogikEdge { namespace React {
     // -- Forward declarations --
@@ -11,6 +11,8 @@ namespace LogikEdge { namespace React {
     struct IDelayedAction;
     struct IPeriodicAction;
     struct IBackgroundAction;
+
+    extern int timedActionCompare(const List&, const List&);
 
     // =======================================================================
     struct Dispatcher {
@@ -24,13 +26,13 @@ namespace LogikEdge { namespace React {
         void runOnce();
 
         static Dispatcher&  getInstance() { return ourDispatcher; }
-        static int          timedActionCompare(const Cdll&, const Cdll&);
+        //static int          timedActionCompare(const List&, const List&);
 
     private:
-        CdllQueue           myOnEventQ;
-        CdllQueue           myBackgroundQ;
-        CdllPriorityQueue   myDelayQ;
-        CdllPriorityQueue   myPeriodicQ;
+        Queue           myOnEventQ;
+        Queue           myBackgroundQ;
+        PriorityQueue   myDelayQ;
+        PriorityQueue   myPeriodicQ;
 
         static Dispatcher   ourDispatcher;
     };

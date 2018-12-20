@@ -1,10 +1,10 @@
-#include "CdllPriorityQueue.h"
+#include "PriorityQueue.h"
 
 namespace LogikEdge { namespace React {
 
-    Cdll* CdllPriorityQueue::pop() {
+    List* PriorityQueue::pop() {
         // -- Get highest priority element. --
-        Cdll* result = peek();
+        List* result = peek();
         if(result == 0) {
             return 0;
         }
@@ -14,19 +14,19 @@ namespace LogikEdge { namespace React {
         isSorted = false;
     }
 
-    void CdllPriorityQueue::sort() {
+    void PriorityQueue::sort() {
         // -- Nothing to do if queue is already sorted. --
         if(isSorted == true) {
             return;
         }
         // -- Nothing to do if the queue is empty. --
-        Cdll* best = head.getNext();
+        List* best = head.getNext();
         if(best == &head) {
             isSorted = true;
             return;
         }
         // -- Find the highest priority element. --
-        for(Cdll* cursor = best->getNext(); cursor != &head; cursor = cursor->getNext()) {
+        for(List* cursor = best->getNext(); cursor != &head; cursor = cursor->getNext()) {
             if(sortFunction(*best, *cursor) < 0) {
                 best = cursor;
             }

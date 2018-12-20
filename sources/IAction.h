@@ -1,14 +1,14 @@
 #ifndef LogikEdge_React_IAction_h
 #define LogikEdge_React_IAction_h
 
-#include "Cdll.h"
+#include "List.h"
 #include "Dispatcher.h"
 #include "Timer.h"
 
 namespace LogikEdge { namespace React {
 
     // =======================================================================
-    struct IAction : private Cdll {
+    struct IAction : public List {
 
         virtual void activate() { run(); }
         bool isActive() const   { return !isIsolated(); }
@@ -57,5 +57,16 @@ namespace LogikEdge { namespace React {
         void activate() { Dispatcher::getInstance().activate(*this); }
     };
 
+    // ======================================================================
+    /// The TimedProcessComparator should be used to determine which
+    /// time dependent process is the next to elapse.
+    ///
+    /// NOTE: This comparator is used by the scheduler to order the
+    ///       execution of the time dependent processes.
+    struct TimedProcessComparator {
+        static int compare(const ITimedAction& p1, const ITimedAction& p2) {
+            return (int)(p2.getElapseTime() - p1.getElapseTime());
+        }
+    };
 }}
 #endif
