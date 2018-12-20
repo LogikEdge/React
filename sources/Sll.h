@@ -1,7 +1,7 @@
-#ifndef LogikEdge_React_Sll_h
-#define LogikEdge_React_Sll_h
+#ifndef React_Sll_h
+#define React_Sll_h
 
-namespace LogikEdge { namespace React {
+namespace React {
 
 // =======================================================================
 /// The Single Linked List is a low-level struct used to create
@@ -57,5 +57,5 @@ private:
 };
 
 
-}}
+}
 #endif

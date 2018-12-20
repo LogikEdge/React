@@ -1,6 +1,6 @@
 #include "Queue.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     List* Queue::pop() {
         List* result = peek<List>();
@@ -10,4 +10,4 @@ namespace LogikEdge { namespace React {
         return result;
     }
 
-}}
+}

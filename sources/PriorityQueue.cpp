@@ -1,6 +1,6 @@
 #include "PriorityQueue.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     List* PriorityQueue::pop() {
         // -- Get highest priority element. --
@@ -39,4 +39,4 @@ namespace LogikEdge { namespace React {
         isSorted = true;
     }
 
-}}
+}

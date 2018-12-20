@@ -1,9 +1,9 @@
-#ifndef LogikEdge_React_Queue_h
-#define LogikEdge_React_Queue_h
+#ifndef React_Queue_h
+#define React_Queue_h
 
 #include "List.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     // =======================================================================
     struct Queue {
@@ -26,6 +26,6 @@ namespace LogikEdge { namespace React {
     private:
         List    head;   //< The head of the List queue.
     };
-}}
+}
 
 #endif

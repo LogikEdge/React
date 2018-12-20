@@ -1,9 +1,9 @@
-#ifndef LogikEdge_React_PriorityQueue_h
-#define LogikEdge_React_PriorityQueue_h
+#ifndef React_PriorityQueue_h
+#define React_PriorityQueue_h
 
 #include "List.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     // =======================================================================
     struct PriorityQueue {
@@ -42,6 +42,6 @@ namespace LogikEdge { namespace React {
         bool            isSorted;   //< Keeps track of the sorted state.
         SortFunction    sortFunction;
     };
-}}
+}
 
 #endif

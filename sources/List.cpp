@@ -1,6 +1,6 @@
 #include "List.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
 
 // -----------------------------------------------------------------------
 /// Appends an element to the list.
@@ -40,4 +40,4 @@ void List::isolate() {
     next= prev= this;
 }
 
-}}
+}

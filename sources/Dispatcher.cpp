@@ -2,7 +2,7 @@
 #include "IAction.h"
 #include "ITarget.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     Dispatcher Dispatcher::ourDispatcher;
 
@@ -94,4 +94,4 @@ namespace LogikEdge { namespace React {
         ITarget::endCriticalSection();
     }
 
-}}
+}

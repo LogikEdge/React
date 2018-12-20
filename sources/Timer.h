@@ -1,9 +1,9 @@
-#ifndef LogikEdge_React_Timer_h
-#define LogikEdge_React_Timer_h
+#ifndef React_Timer_h
+#define React_Timer_h
 
 #include "ITarget.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     typedef long Milliseconds;   //< Type for millisecond units.
 
@@ -96,6 +96,6 @@ namespace LogikEdge { namespace React {
         bool         isStarted : 1;  ///< Timer start / stop state.
     };
 
-}}
+}
 
 #endif

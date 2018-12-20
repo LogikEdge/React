@@ -14,13 +14,13 @@
 // ==========================================================================
 /// Implementation of the public interface of React.
 ///
-namespace LogikEdge { namespace React {
+namespace React {
     /// Initializes the React framework
     void init() {}
     void runOnce() {
-        LogikEdge::React::Dispatcher::getInstance().runOnce();
+        React::Dispatcher::getInstance().runOnce();
     }
-}}
+}
 
 // ==========================================================================
 /// SYSTEM EXECUTION ENVIRONMENT
@@ -31,11 +31,11 @@ namespace LogikEdge { namespace React {
 #if !defined(ARDUINO)
 int main() {
     // -- Setup the React framework & application. --
-    LogikEdge::React::init();
+    React::init();
     // -- Contiuously run the application until an exit request is seen. --
     while(true) {
         try {
-            LogikEdge::React::runOnce();
+            React::runOnce();
         }
         catch(...) {}
     }

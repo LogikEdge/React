@@ -1,11 +1,11 @@
-#ifndef LogikEdge_React_IAction_h
-#define LogikEdge_React_IAction_h
+#ifndef React_IAction_h
+#define React_IAction_h
 
 #include "List.h"
 #include "Dispatcher.h"
 #include "Timer.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     // =======================================================================
     struct IAction : public List {
@@ -68,5 +68,6 @@ namespace LogikEdge { namespace React {
             return (int)(p2.getElapseTime() - p1.getElapseTime());
         }
     };
-}}
+}
+
 #endif

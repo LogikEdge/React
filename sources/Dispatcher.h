@@ -1,10 +1,10 @@
-#ifndef LogikEdge_React_Dispatcher_h
-#define LogikEdge_React_Dispatcher_h
+#ifndef React_Dispatcher_h
+#define React_Dispatcher_h
 
 #include "Queue.h"
 #include "PriorityQueue.h"
 
-namespace LogikEdge { namespace React {
+namespace React {
     // -- Forward declarations --
     struct IAction;
     struct IOnEventAction;
@@ -37,6 +37,6 @@ namespace LogikEdge { namespace React {
         static Dispatcher   ourDispatcher;
     };
 
-}}
+}
 
 #endif

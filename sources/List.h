@@ -1,7 +1,7 @@
-#ifndef LogikEdge_React_List_h
-#define LogikEdge_React_List_h
+#ifndef React_List_h
+#define React_List_h
 
-namespace LogikEdge { namespace React {
+namespace React {
 
 // =======================================================================
 /// The Circular Doubly Linked List is a low-level struct used to create
@@ -89,5 +89,5 @@ private:
 };
 
 
-}}
+}
 #endif

@@ -1,7 +1,7 @@
-#ifndef LogikEdge_React_ITarget_h
-#define LogikEdge_React_ITarget_h
+#ifndef React_ITarget_h
+#define React_ITarget_h
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     namespace ITarget {
         // -----------------------------------------------------------------------
@@ -27,6 +27,6 @@ namespace LogikEdge { namespace React {
         extern void sleep(long milliseconds);
     }
 
-}}
+}
 
 #endif

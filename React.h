@@ -1,5 +1,5 @@
-#ifndef _LogikEdge_React_h
-#define _LogikEdge_React_h
+#ifndef React_h
+#define React_h
 
 // =======================================================================
 /// Master React include file.
@@ -18,8 +18,7 @@
 
 // =======================================================================
 /// Default to using the React namespace.
-using namespace LogikEdge;
-using namespace LogikEdge::React;
+using namespace React;
 
 
 // =======================================================================
@@ -28,11 +27,11 @@ using namespace LogikEdge::React;
 /// This section declares the public interface of React.  All functionality
 /// of React should be declared in this module only.
 ///
-namespace LogikEdge { namespace React {
+namespace React {
     /// Initialize the React kernel.
     void init();
     /// Run the React kernel
     void runOnce();
-}}
+}
 
 #endif

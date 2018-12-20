@@ -1,6 +1,6 @@
-#include "Arduino.h"
+#include <Arduino.h>
 
-namespace LogikEdge { namespace React {
+namespace React {
 
     namespace ITarget {
         // -----------------------------------------------------------------------
@@ -26,4 +26,4 @@ namespace LogikEdge { namespace React {
         void sleep(long milliseconds) { delay(milliseconds); }
     }
 
-}}
+}
