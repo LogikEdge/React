@@ -15,6 +15,7 @@
 #include "sources/ITarget.h"
 #include "sources/Timer.h"
 #include "sources/Sll.h"
+#include "sources/StreamBuf.h"
 
 // =======================================================================
 /// Default to using the React namespace.
